@@ -4,7 +4,8 @@ public class serialNumberGenerator {
 
     private static serialNumberGenerator generate;
     private int startValue;
-    private String prefixValue;
+    private String UPCValue;
+    private String motorValue;
 
     public static synchronized serialNumberGenerator getInstance(){
         if (generate == null){
@@ -15,13 +16,14 @@ public class serialNumberGenerator {
 
     private serialNumberGenerator(){}
 
-    public synchronized void startGeneration(String model, int startNumber){
-        prefixValue = model;
+    public synchronized void startGeneration(String UPC, String motorNumber, int startNumber){
+        UPCValue = UPC;
         startValue = startNumber;
+        motorValue = motorNumber;
     }
 
     public synchronized String getNextSerial(){
-        return prefixValue + (++startValue);
+        return motorValue + UPCValue + (++startValue);
     }
 
     public synchronized int getRecentNumber(){
