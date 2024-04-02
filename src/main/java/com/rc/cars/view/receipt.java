@@ -105,12 +105,12 @@ import java.util.ArrayList;
             System.out.println('\n');
             System.out.println("Preciate' your business!");
             String back = String.format("%28s", "We'll see you later");
-            System.out.println(back);
+            System.out.println();
         }
 
         private void showStars(){
             for(int i = 0; i < 40; i++) {
-                System.out.println("*");
+                System.out.print("*");
             }
             System.out.println();
         }

@@ -48,15 +48,15 @@ public class order {
     }
 
     private String buySomething(){
-        System.out.println("So what are you lookin' for; cars, accessories, or both?");
-        System.out.println("Right, here's your options: \n1 Accessories n\2 Car ");
+        System.out.println("So what are you lookin' for; cars or accessories?");
+        System.out.println("Here's your options: \n1 Accessories \n2 Car ");
         String pattern = "[1-2]+";
         return verifyResult(pattern);
     }
 
     private void buyRC(){
         System.out.println("What kind of car are you thinking?");
-        System.out.println("We've got: \n1 - Sport\n 2 - SUV \n3 - Classic" +
+        System.out.println("We've got: \n1 - Sport\n2 - SUV \n3 - Classic" +
                 "\n4 - ATV \n5 - Dune Buggy \n6 - Crawler");
         String pattern = "[1-6]+";
         String answer = verifyResult(pattern);
@@ -136,12 +136,16 @@ private void accessoryChoice(String item){
                 break;
             case "1":
                 optionsChoice = new militaryShell(carChoice);
+                break;
             case "2":
                 optionsChoice = new truckShell(carChoice);
+                break;
             case "3":
                 optionsChoice = new knobbyTireOption(carChoice);
+                break;
             case "4":
                 optionsChoice = new slickTireOption(carChoice);
+                break;
             default:
                 upgradeOffer();
         }
@@ -163,18 +167,19 @@ private void accessoryChoice(String item){
         default:
             System.out.println("That's not an option. Try again.");
             moreUpgrades();
-    }
+        }
+
     }
 
     private void anotherCar(){
         System.out.println("Do you want to add another car? Yes or No?");
     String answer = userIn.next();
     switch (answer.toLowerCase()){
-        case "Yes":
+        case "yes":
             carChoice = null;
             buyRC();
             break;
-        case "No":
+        case "no":
             buyAccessories();
             break;
         default:

@@ -54,7 +54,7 @@ public class inventoryGenerator {
     }
 
     private void buildRCInventory(ArrayList<abstractRCCar> carList, Supplier<abstractRCCar> carSupply) {
-        generator.startGeneration(carSupply.get().getUPC(), carSupply.get().getStartNumber());
+        generator.startGeneration(carSupply.get().getUPC(), carSupply.get().getMotorNumber(), carSupply.get().getStartNumber());
 
         for (int i = 0; i < 100 ; i++){
             abstractRCCar car = carSupply.get();

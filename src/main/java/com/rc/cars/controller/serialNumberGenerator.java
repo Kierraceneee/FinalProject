@@ -29,4 +29,5 @@ public class serialNumberGenerator {
     public synchronized int getRecentNumber(){
         return startValue;
     }
+
 }
