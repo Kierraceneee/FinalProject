@@ -23,12 +23,12 @@ public class inventoryGenerator {
 
     public inventoryGenerator() {
         generator = serialNumberGenerator.getInstance();
-        buildBikeInventory(SUVList,() -> new SUV());
-        buildBikeInventory(sportList, () -> new sport());
-        buildBikeInventory(classicList, () -> new classic());
-        buildBikeInventory(ATVList, () -> new ATV());
-        buildBikeInventory(duneBuggyList, () -> new duneBuggy());
-        buildBikeInventory(crawlerList, () -> new crawler());
+        buildRCInventory(SUVList,() -> new SUV());
+        buildRCInventory(sportList, () -> new sport());
+        buildRCInventory(classicList, () -> new classic());
+        buildRCInventory(ATVList, () -> new ATV());
+        buildRCInventory(duneBuggyList, () -> new duneBuggy());
+        buildRCInventory(crawlerList, () -> new crawler());
     }
 
     public inventoryGenerator(serialNumberGenerator generator) {
@@ -53,7 +53,7 @@ public class inventoryGenerator {
         return duneBuggyList;
     }
 
-    private void buildBikeInventory(ArrayList<abstractRCCar> carList, Supplier<abstractRCCar> carSupply) {
+    private void buildRCInventory(ArrayList<abstractRCCar> carList, Supplier<abstractRCCar> carSupply) {
         generator.startGeneration(carSupply.get().getUPC(), carSupply.get().getStartNumber());
 
         for (int i = 0; i < 100 ; i++){
